@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRT Tutorial by Poyo!</title>
+  </head>
+
+  <body>
+    <div class="screen-overlay"></div>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+      .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      :root {
+        --blue-rgb: 255 255 255;
+        --primary-rgb: var(--blue-rgb);
+      }
+
+      .screen-overlay {
+        background: linear-gradient(
+          rgb(var(--primary-rgb) / 0.15),
+          rgb(var(--primary-rgb) / 0.15) 0.1px,
+          transparent 3px,
+          transparent 9px
+        );
+        background-size: 100% 9px;
+        height: 300vh;
+        width: 100%;
+        animation: pan-overlay 22s infinite linear;
+        position: absolute;
+        z-index: -10;
+        left: 0px;
+        top: 0px;
+      }
+
+      @keyframes pan-overlay {
+        from {
+          background-position: 0% 0%;
+        }
+
+        to {
+          background-position: 0% -100%;
+        }
+      }
+      pre {
+        border: white solid 2px;
+        background-color: darkslategray;
+        height: 25vh;
+        overflow:scroll;
+      }
+      .smoller {height: auto;}
+    </style>
+    <div class="container">
+      <h1><a href="https://dapoyo.neocities.org">Poyo's</a> CRT il·lusion!</h1>
+      <h3>Step 1</h3>
+      <p>Copy and paste this code into your CSS.</p>
+      <pre><code>
+/* Made by Poyo! https://dapoyo.neocities.org */
+:root {
+--blue-rgb: 255 255 255;
+--primary-rgb: var(--blue-rgb);
+}
+.screen-overlay {
+  background: linear-gradient(
+  rgb(var(--primary-rgb) / 0.15),
+  rgb(var(--primary-rgb) / 0.15) 0.1px,
+  transparent 3px,
+  transparent 9px
+  );
+  background-size: 100% 9px;
+  height: 100vh;
+  width: 100%;
+  animation: pan-overlay 22s infinite linear;
+  position: absolute;
+  z-index: -10;
+  left: 0px;
+  top: 0px;
+}
+@keyframes pan-overlay {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 0% -100%;
+  } 
+}
+  </code></pre>
+      <h3>Step 2</h3>
+      <p>Add <pre class="smoller"><code>&lt;div class="screen-overlay"&gt;lt;/div&gt;</code></pre> to your HTML code and we're done!</p>
+    </div>
+  </body>
+</html>

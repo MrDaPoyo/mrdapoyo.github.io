@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+body {
+  background: #141414;
+  overflow: hidden;
+  color: white;
+  font-family: "VT323", monospace;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+canvas {
+  background: #141414;
+  border: solid white 2px;
+  height: 100%;
+  aspect-ratio: 2 / 1;
+}
+
+.thought {
+  top: 0;
+  position: absolute;
+  animation: zoom-out linear 96s;
+  animation-iteration-count: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+a {
+  color: white;
+}
+
+.blinkie {
+  z-index: 100;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: darkgray 2px dotted;
+  padding: 10px;
+  margin: 0;
+}
+
+@keyframes zoom-out {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.05);
+  }
+}
+
+/* This is soooooo wrooooong... */
