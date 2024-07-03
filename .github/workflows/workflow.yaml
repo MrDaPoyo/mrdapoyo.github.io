@@ -25,7 +25,7 @@ jobs:
           git clone https://github.com/MrDaPoyo/mrdapoyo.github.io/
       - name: Copy contents
         run: |
-          cp -a mrdapoyo.github.io/. .
+          cp -a mrdapoyo.github.io/. public
           rm -r mrdapoyo.github.io
       - uses: actions/checkout@v1
       # When the dist_dir is ready, deploy it to neocities
