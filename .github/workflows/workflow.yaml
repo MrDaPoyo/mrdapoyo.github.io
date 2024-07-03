@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Clear folder
+        run: |
+          rm -rf ./public/*
+      - name: Copy files
+        run: | 
+          cp -r ./* ./public/
       - uses: actions/checkout@v1
       # When the dist_dir is ready, deploy it to neocities
       - name: Deploy to neocities
