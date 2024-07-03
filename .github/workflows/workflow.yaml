@@ -17,6 +17,9 @@ jobs:
       - name: Clear folder
         run: |
           rm -rf public/*
+      - name: Read folder
+        run: |
+          ls
       - name: Copy files
         run: | 
           cp -r ./ public/
