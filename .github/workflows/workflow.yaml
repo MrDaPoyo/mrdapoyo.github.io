@@ -20,9 +20,9 @@ jobs:
       - name: Read folder
         run: |
           ls
-      - name: Copy files
+      - name: Clone files
         run: | 
-          cp -r ./ public/
+          git clone https://github.com/MrDaPoyo/mrdapoyo.github.io/
       - uses: actions/checkout@v1
       # When the dist_dir is ready, deploy it to neocities
       - name: Deploy to neocities
