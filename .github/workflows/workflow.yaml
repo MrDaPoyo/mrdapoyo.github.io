@@ -27,6 +27,8 @@ jobs:
         run: |
           cp -a mrdapoyo.github.io/. public
           rm -r mrdapoyo.github.io
+          ls ../
+          ls
       - uses: actions/checkout@v1
       # When the dist_dir is ready, deploy it to neocities
       - name: Deploy to neocities
