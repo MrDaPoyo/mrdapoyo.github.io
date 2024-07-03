@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Create folder
+        run: |
+          mkdir public
       - name: Clear folder
         run: |
           rm -rf public/*
