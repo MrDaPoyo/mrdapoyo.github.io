@@ -14,9 +14,6 @@ jobs:
       - name: Create folder
         run: |
           mkdir public
-      - name: Clear folder
-        run: |
-          rm -rf public/*
       - name: Read folder
         run: |
           ls
@@ -27,7 +24,7 @@ jobs:
         run: |
           cp -a mrdapoyo.github.io/. public
           rm -r mrdapoyo.github.io
-          ls ../
+          ls public
           ls
       - uses: actions/checkout@v1
       # When the dist_dir is ready, deploy it to neocities
