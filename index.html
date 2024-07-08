@@ -16,6 +16,10 @@
     if (window.location.href.includes('?xp=true')) {
       body.id = "xp-mode-bg";
 }
+      var ws = new WebSocket("wss://verbena-spotless-appeal.glitch.me/:8080")
+ws.addEventListener("open", (event) => {
+    ws.send(JSON.stringify({view: true}))
+})
   </script>
   <div id="cookieContainer"></div>
   <div class="header minicontainer">
