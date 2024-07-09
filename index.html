@@ -16,6 +16,21 @@
     if (window.location.href.includes('?xp=true')) {
       body.id = "xp-mode-bg";
 }
+      var id = ""
+var idLoaded = localStorage.getItem("id")
+var letters = "abcdefghijklmnopqrstuvABCDEFGHIJKLMNOPQRS0123456789"
+if (idLoaded) {
+    id = idLoaded
+} else {
+    for (let i = 0; i < 8; i++) {
+        id += letters[Math.round(Math.random()*(letters.length-1))]
+    }
+    localStorage.setItem("id", id)
+}
+      var ws = new WebSocket("wss://verbena-spotless-appeal.glitch.me/:8080")
+ws.addEventListener("open", (event) => {
+    ws.send(JSON.stringify({view: true}))
+})
   </script>
   <div id="cookieContainer"></div>
   <div class="header minicontainer">
@@ -74,7 +89,7 @@
         <div class="subcontainer">
           <h2 id="smol">My Button</h2>
           <div id="mybutton">
-            <textarea readonly><a class="title" title="Come visit ma website! :3" href="https://dapoyo.neocities.org"><img alt="Poyo's Button made by Micky Plushie" src="https://dapoyo.neocities.org/img/stamps/poyo.gif"></a></textarea>
+            <textarea readonly><a class="title" title="Come visit ma website! :3" href="https://poyo.is-a.dev"><img alt="Poyo's Button made by Micky Plushie" src="https://poyo.is-a.dev/images/stamps/poyo.gif"></a></textarea>
             <a href="https://dapoyo.neocities.org" target="_blank"><img src="images/stamps/poyo.gif"></a>
           </div>
         </div>
