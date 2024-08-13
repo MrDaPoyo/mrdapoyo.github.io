@@ -1,0 +1,39 @@
+.window {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  text-align: center;
+  overflow: hidden;
+}
+
+.window > * {
+  box-sizing: border-box;
+}
+
+.windowtop {
+  padding: auto;
+  height: 25px;
+  width: 100%;
+  padding: 2px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196F3;
+  background-image: linear-gradient(to bottom, rgb(43, 125, 233), rgb(30, 87, 153));
+  background-color: transparent;
+  border-bottom: 1px solid #0e3d70;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.windowheader {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  cursor:move;
+  width: 100%;
+}
