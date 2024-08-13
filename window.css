@@ -14,8 +14,8 @@
 .windowtop {
   padding: auto;
   height: 25px;
+  padding-left: 5px;
   width: 100%;
-  padding: 2px;
   cursor: move;
   z-index: 10;
   background-color: #2196F3;
@@ -37,3 +37,14 @@
   cursor:move;
   width: 100%;
 }
+
+.windowtop > button {
+  background-color: red;
+  background-image: linear-gradient(to bottom, red, darkred);
+  border: 2px darkred solid;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
