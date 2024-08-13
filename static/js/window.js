@@ -52,7 +52,7 @@ function dragElement(elmnt) {
       elmnt.style.zIndex = "4";
     }
     function closeWindow() {
-      elmnt.remove();
+      elmnt.style.display = "none";
     }
 
     toggler.addEventListener("click", function () {
