@@ -28,13 +28,15 @@ function dragElement(elmnt) {
     var toggler = document.getElementById("button-" + elmnt.id);
 
     button.onclick = closeWindow;
-    function dragMouseDown(event) {
-      event.preventDefault();
-      pos3 = event.clientX;
-      pos4 = event.clientY;
+    function dragMouseDown(e) {
+      e = e || window.event;
+      e.preventDefault();
+      // get the mouse cursor position at startup:
+      pos3 = e.clientX;
+      pos4 = e.clientY;
       document.onmouseup = closeDragElement;
+      // call a function whenever the cursor moves:
       document.onmousemove = elementDrag;
-      elmnt.style.zIndex = "9999";
     }
     function elementDrag(event) {
       event.preventDefault();
@@ -53,6 +55,7 @@ function dragElement(elmnt) {
     }
     function closeWindow() {
       elmnt.style.display = "none";
+      elmnt.style.zIndex = "4";
     }
 
     toggler.addEventListener("click", function () {
@@ -87,7 +90,7 @@ function openNewWindow(appName) {
     newWindow.style.height = app.height;
     newWindow.style.display = "block";
     newWindow.id = id;
-    newWindow.innerHTML = `<div id='windowtop-${id}' class="windowtop"><div id='windowheader-${id}' class="windowheader">${app.name}</div><button id="windowclose-${id}">X</button></div><iframe width="100%" height="100%" src="${app.src}"></iframe>`;
+    newWindow.innerHTML = `<div id='windowtop-${id}' class="windowtop"><div id='windowheader-${id}' class="windowheader">${app.name}</div><button id="windowclose-${id}">X</button></div><div class="windowcontent" id="windowcontent-${id}"><iframe width="100%" height="100%" src="${app.src}"></iframe><div class="resize-handle"></div>`;
     megaContainer.appendChild(newWindow);
     dragElement(newWindow);
     console.log(activeApps);
