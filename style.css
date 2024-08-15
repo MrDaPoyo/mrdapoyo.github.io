@@ -67,6 +67,7 @@ body {
   height: 100%;
   border-radius: 7px;
   box-shadow: 0px 1px 4px -2px #141414;
+  background-color: rgb(255, 255, 255, 0.5);
   text-shadow: 0px -1px #161616;
   animation: iconHoverOff 0.2s ease-in-out;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.0));

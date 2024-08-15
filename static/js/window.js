@@ -11,6 +11,12 @@ appJson = {
     "height": "500px",
     "src": "https://reporter.poyo.study"
   },
+  "settings": {
+    "name": "Settings",
+    "width": "300px",
+    "height": "400px",
+    "src": "apps/config.html"
+  }
 }
 appJson = JSON.stringify(appJson);
 appJson = JSON.parse(appJson);

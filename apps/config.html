@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function saveConfig() {
+            // Declare the selectElement variable
+            const selectElement = document.getElementById('wallpaperSelect');
+            const megaContainer = document.querySelector('#body-config');
+
+            var value = selectElement.value;
+            var text = selectElement.options[selectElement.selectedIndex].text;
+
+            megaContainer.style.backgroundImage = `url('../static/wallpapers/${value}')`;
+        } 
+    </script>
+</head>
+
+<body id="body-config">
+    <h1>Configuration Settings</h1>
+
+    <label for="wallpaper">Wallpaper:</label>
+    <select id="wallpaperSelect" name="wallpaper">
+        <option value="PoyoOSWallpaper1.png">Light Wallpaper</option>
+        <option value="PoyoOSWallpaper2.png">Dark Wallpaper</option>
+    </select>
+
+    <button onclick="saveConfig()">Save</button>
+</body>
+
+</html>
