@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Genie Effect</title>
+    <style>
+        /* Add some basic styling to our element */
+        .genie-effect {
+            width: 300px;
+            height: 200px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 20px;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateY(0deg);
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .genie-effect.minimized {
+            transform: perspective(1000px) skew(-45deg) translate3d(100vh, 100vh, 0) rotateY(-45deg) scale(0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Our element with the genie effect -->
+    <div class="genie-effect">
+        <h2>Genie Effect</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <button onclick="minimize()">Minimize</button>
+    </div>
+
+    <script>
+        // Function to toggle the minimized state
+        function minimize() {
+            const element = document.querySelector('.genie-effect');
+            element.classList.toggle('minimized');
+        }
+    </script>
+</body>
+
+</html>
