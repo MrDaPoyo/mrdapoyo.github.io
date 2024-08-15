@@ -104,3 +104,13 @@ function openNewWindow(appName) {
     console.log(activeApps);
   }
 }
+
+function saveWallpaper() {
+  const selectElement = document.getElementById('wallpaperSelect');
+  const megaContainer = document.getElementsByClassName("megacontainer")[0];
+
+  var value = selectElement.value;
+  var text = selectElement.options[selectElement.selectedIndex].text;
+
+  megaContainer.style.backgroundImage = `url('static/wallpapers/${value}')`;
+}

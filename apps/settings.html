@@ -6,19 +6,4 @@
     <option value="PoyoOSWallpaper1.png">Light Wallpaper</option>
     <option value="PoyoOSWallpaper2.png">Dark Wallpaper</option>
 </select>
-<button id="saveButton">Save</button>
-
-<script defer>
-    const saveButton = document.getElementById('saveButton');
-    saveButton.addEventListener('click', saveConfig);
-
-    function saveConfig() {
-        const selectElement = document.getElementById('wallpaperSelect');
-        const megaContainer = document.querySelector('.megaContainer');
-
-        var value = selectElement.value;
-        var text = selectElement.options[selectElement.selectedIndex].text;
-
-        megaContainer.style.backgroundImage = `url('static/wallpapers/${value}')`;
-    } 
-</script>
+<button onclick="saveWallpaper()">Save</button>
