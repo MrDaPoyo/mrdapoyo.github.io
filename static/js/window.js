@@ -10,12 +10,6 @@ appJson = {
     "width": "600px",
     "height": "500px",
     "src": "https://reporter.poyo.study"
-  },
-  "settings": {
-    "name": "Settings",
-    "width": "300px",
-    "height": "400px",
-    "src": "apps/config.html"
   }
 }
 appJson = JSON.stringify(appJson);
@@ -79,23 +73,31 @@ function dragElement(elmnt) {
 }
 
 function openNewWindow(appName) {
+  var megaContainer = document.getElementsByClassName("megacontainer")[0];
+  var newWindow = document.createElement("div");
+  newWindow.className = "window";
 
-  app = appJson[appName];
-  if (!document.getElementById(appName)) {
+  if (appName == "settings") {
+    fetch('../../apps/settings.html')
+      .then(response => response.text())
+      .then(htmlContent => {
+        newWindow.innerHTML = `<div id='windowtop-settings' class="windowtop"><div id='windowheader-settings' class="windowheader">Settings</div><button id="windowclose-settings">X</button></div><div class="windowcontent" id="windowcontent-settings">${htmlContent}</div>`;
+        newWindow.id = "settings";
+        megaContainer.appendChild(newWindow);
+        dragElement(newWindow);
+      });
+  } else {
+    app = appJson[appName]; // Define app here
+
+    newWindow.style.width = app.width;
+    newWindow.style.height = app.height;
+    newWindow.style.display = "block";
+    var id = appName;
+    newWindow.id = id;
 
     activeApps.push(app.name);
     console.log(activeApps);
 
-    var newWindow = document.createElement("div", { class: "window" });
-    var id = appName;
-    newWindow.id = id;
-    var megaContainer = document.getElementsByClassName("megacontainer")[0];
-    var newWindow = document.createElement("div");
-    newWindow.className = "window";
-    newWindow.style.width = app.width;
-    newWindow.style.height = app.height;
-    newWindow.style.display = "block";
-    newWindow.id = id;
     newWindow.innerHTML = `<div id='windowtop-${id}' class="windowtop"><div id='windowheader-${id}' class="windowheader">${app.name}</div><button id="windowclose-${id}">X</button></div><div class="windowcontent" id="windowcontent-${id}"><iframe width="100%" height="100%" src="${app.src}"></iframe><div class="resize-handle"></div>`;
     megaContainer.appendChild(newWindow);
     dragElement(newWindow);

@@ -61,7 +61,7 @@
 .icon-container:active {
     border-radius: 7px;
     background: linear-gradient(#45bfeb, rgb(74, 74, 186));
-    transform: rotateY(-20deg) rotateX(20deg) scale(0.9);
+    transform:scale(0.9);
 }
 
 .icon-container:after {
