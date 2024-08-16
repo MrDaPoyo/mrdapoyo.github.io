@@ -27,7 +27,6 @@ function dragElement(elmnt) {
 
     var toggler = document.getElementById("button-" + elmnt.id);
 
-    button.onclick = closeWindow;
     function dragMouseDown(e) {
       e = e || window.event;
       e.preventDefault();
@@ -57,6 +56,23 @@ function dragElement(elmnt) {
       elmnt.classList.toggle("hidden");
       elmnt.style.display = "none";
       elmnt.style.zIndex = "4";
+    }
+    function toggleWindowVisibility(appName) {
+      var windowElement = document.getElementById(appName);
+      if (windowElement.classList.contains("hidden")) {
+        windowElement.classList.remove("hidden");
+        windowElement.style.display = "block";
+      } else {
+        windowElement.classList.add("hidden");
+        windowElement.style.display = "none";
+      }
+    }
+    button.onclick = function () {
+      toggleWindowVisibility(elmnt.id);
+    }
+
+    toggler.onclick = function () {
+      toggleWindowVisibility(elmnt.id);
     }
 
   } catch (e) {
