@@ -27,10 +27,10 @@
     <script>
       var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
       if (!isChrome) {
-        $('#iframeAudio').remove()
+        document.getElementById('#iframeAudio').remove()
       }
       else {
-        $('#playAudio').remove() // just to make sure that it will not have 2x audio in the background 
+        document.getElementById('#iframeAudio').remove() // just to make sure that it will not have 2x audio in the background 
       }
     </script>
 
