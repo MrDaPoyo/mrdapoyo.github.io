@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .notepad-container {
+            width: 80%;
+            max-width: 600px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="notepad-container">
+    <textarea id="textArea" placeholder="Type something..."></textarea>
+    <button onclick="saveText()">Save</button>
+    <button onclick="loadText()">Load</button>
+    <button onclick="clearText()">Clear</button>
+</div>
+
+<script>
+    function saveText() {
+        const textArea = document.getElementById('textArea');
+        localStorage.setItem('savedText', textArea.value);
+        alert('Text saved!');
+    }
+
+    function loadText() {
+        const textArea = document.getElementById('textArea');
+        const savedText = localStorage.getItem('savedText');
+        if (savedText) {
+            textArea.value = savedText;
+        } else {
+            alert('No saved text found!');
+        }
+    }
+
+    function clearText() {
+        const textArea = document.getElementById('textArea');
+        textArea.value = '';
+        localStorage.removeItem('savedText');
+    }
+</script>
+
+</body>
+</html>
