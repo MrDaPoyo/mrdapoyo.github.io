@@ -7,14 +7,22 @@
     <video id="vid">
         <source src="static/wallpapers/0816.mp4">
     </video>
-    <script defer>
-        document.getElementById('vid').play();
-    </script>
-    <!-- <div class="bootloader">
-        <div class="half full sexy">
+    
+    <div class="bootloader" id="div">
+        <button id="btn">Start PoyoOS</button>
+        <!--<div class="half full sexy">
             <div class="border-overlay"></div>
             <div class="gradient-overlay"></div>
             <div class="bar"></div>
         </div> -->
+        
+        <script defer>
+            var btn = document.getElementById('btn');
+            var vid = document.getElementById('vid');
+            btn.addEventListener('click', function() {
+                btn.style.display = 'none';
+                vid.play();
+            });
+        </script>
     </div>
 </body>
