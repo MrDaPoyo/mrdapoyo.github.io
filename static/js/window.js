@@ -21,7 +21,7 @@ var activeApps = [];
 function dragElement(elmnt) {
   try {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    var header = document.getElementById("windowheader-" + elmnt.id);
+    var header = document.getElementById("windowZ-" + elmnt.id);
     header.onmousedown = dragMouseDown;
     var button = document.getElementById("windowclose-" + elmnt.id);
 
@@ -120,4 +120,16 @@ function saveWallpaper() {
   var text = selectElement.options[selectElement.selectedIndex].text;
 
   megaContainer.style.backgroundImage = `url('static/wallpapers/${value}')`;
+}
+
+if (document.addEventListener) {
+  document.addEventListener('contextmenu', function(e) {
+    alert("You've tried to open context menu"); //here you draw your own menu
+    e.preventDefault();
+  }, false);
+} else {
+  document.attachEvent('oncontextmenu', function() {
+    alert("You've tried to open context menu");
+
+  });
 }

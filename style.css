@@ -71,6 +71,7 @@ body {
   align-items: center;
   justify-content: space-around;
   user-select: none;
+  z-index: 100;
 }
 
 .topnavbar .clock {
@@ -82,4 +83,5 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: inherit;
 }

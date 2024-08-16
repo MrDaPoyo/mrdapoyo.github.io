@@ -7,6 +7,7 @@
   border-radius: 5px 5px 0 0;
   backdrop-filter: blur(5px);
   resize: both;
+  transition: transform 0.1s ease-out;
 }
 
 .window > * {
