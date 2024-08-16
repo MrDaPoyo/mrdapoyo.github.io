@@ -24,22 +24,28 @@
         }
         textarea {
             width: 100%;
-            height: 100%;
+            height: 200px;
             padding: 10px;
             font-size: 16px;
             margin-bottom: 10px;
-            resize:none;
         }
         button {
             padding: 10px;
             font-size: 16px;
             cursor: pointer;
         }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
 
 <div class="notepad-container">
+    <input type="text" id="fileLocation" placeholder="File Location (e.g., mynote)">
     <textarea id="textArea" placeholder="Type something..."></textarea>
     <button onclick="saveText()">Save</button>
     <button onclick="loadText()">Load</button>
@@ -48,25 +54,40 @@
 
 <script>
     function saveText() {
+        const fileLocation = document.getElementById('fileLocation').value;
         const textArea = document.getElementById('textArea');
-        localStorage.setItem('poyoPad', textArea.value);
-        alert('Text saved!');
+        if (fileLocation) {
+            localStorage.setItem(fileLocation, textArea.value);
+            alert('Text saved to ' + fileLocation);
+        } else {
+            alert('Please enter a file location!');
+        }
     }
 
     function loadText() {
+        const fileLocation = document.getElementById('fileLocation').value;
         const textArea = document.getElementById('textArea');
-        const savedText = localStorage.getItem('poyoPad');
-        if (savedText) {
-            textArea.value = savedText;
+        if (fileLocation) {
+            const savedText = localStorage.getItem(fileLocation);
+            if (savedText) {
+                textArea.value = savedText;
+            } else {
+                alert('No saved text found at ' + fileLocation);
+            }
         } else {
-            alert('No saved text found!');
+            alert('Please enter a file location!');
         }
     }
 
     function clearText() {
+        const fileLocation = document.getElementById('fileLocation').value;
         const textArea = document.getElementById('textArea');
-        textArea.value = '';
-        localStorage.removeItem('savedText');
+        if (fileLocation) {
+            localStorage.removeItem(fileLocation);
+            textArea.value = '';
+        } else {
+            alert('Please enter a file location!');
+        }
     }
 </script>
 

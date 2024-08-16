@@ -10,6 +10,12 @@ appJson = {
     "width": "600px",
     "height": "500px",
     "src": "https://reporter.poyo.study"
+  },
+  "poyopad": {
+    "name": "PoyoPad",
+    "width": "300px",
+    "height": "300px",
+    "src": "apps/poyopad.html"
   }
 }
 appJson = JSON.stringify(appJson);
