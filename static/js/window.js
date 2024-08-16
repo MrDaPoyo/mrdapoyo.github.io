@@ -64,12 +64,17 @@ function dragElement(elmnt) {
     }
     function toggleWindowVisibility(appName) {
       var windowElement = document.getElementById(appName);
+      windowElement.classList.toggle("minimized");
       if (windowElement.classList.contains("hidden")) {
-        windowElement.classList.remove("hidden");
-        windowElement.style.display = "block";
+        setTimeout(function() {
+          windowElement.classList.remove("hidden");
+          windowElement.style.display = "block";
+        }, 100);
       } else {
-        windowElement.classList.add("hidden");
-        windowElement.style.display = "none";
+        setTimeout(function() {
+          windowElement.classList.add("hidden");
+          windowElement.style.display = "none";
+        }, 100);
       }
     }
     button.onclick = function () {

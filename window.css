@@ -54,3 +54,7 @@
 .hidden {
   display: none;
 }
+
+.minimized {
+  transform: perspective(10px) rotateX(-20deg) scale(0.5) translateY(1100px);
+}
