@@ -18,16 +18,16 @@ appJson = {
     "src": "apps/poyopad.html"
   }
 }
+
 appJson = JSON.stringify(appJson);
 appJson = JSON.parse(appJson);
 
 var activeApps = [];
 
-
 function dragElement(elmnt) {
   try {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    var header = document.getElementById("windowZ-" + elmnt.id);
+    var header = document.getElementById("windowtop-" + elmnt.id);
     header.onmousedown = dragMouseDown;
     var button = document.getElementById("windowclose-" + elmnt.id);
 
@@ -39,18 +39,18 @@ function dragElement(elmnt) {
       // get the mouse cursor position at startup:
       pos3 = e.clientX;
       pos4 = e.clientY;
+      rect = elmnt.getBoundingClientRect();
+      offsetX = e.clientX - rect.left;
+      offsetY = e.clientY - rect.top;
       document.onmouseup = closeDragElement;
       // call a function whenever the cursor moves:
       document.onmousemove = elementDrag;
     }
+    
     function elementDrag(event) {
       event.preventDefault();
-      pos1 = pos3 - event.clientX;
-      pos2 = pos4 - event.clientY;
-      pos3 = event.clientX;
-      pos4 = event.clientY;
-      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-      elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+      elmnt.style.top = (event.clientY - offsetY) + "px";
+      elmnt.style.left = (event.clientX - offsetX) + "px";
     }
 
     function closeDragElement() {
@@ -123,7 +123,6 @@ function saveWallpaper() {
   const megaContainer = document.getElementsByClassName("megacontainer")[0];
 
   var value = selectElement.value;
-  var text = selectElement.options[selectElement.selectedIndex].text;
 
   megaContainer.style.backgroundImage = `url('static/wallpapers/${value}')`;
 }
