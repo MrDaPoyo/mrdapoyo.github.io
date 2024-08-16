@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Bahnschrift";
+  src: url(static/fonts/BAHNSCHRIFT\ 5.TTF);
+}
+
 html,
 body {
   margin: 0;
@@ -50,4 +55,31 @@ body {
   backdrop-filter: blur(5px);
   border: rgba(255, 255, 255, 0.4) dotted 5px;
   transform: perspective(100px) rotateX(20deg);
+}
+
+
+.topnavbar {
+  height: 5vh;
+  width: 100%;
+  position: absolute;
+  top:0;
+  left: 0;
+  background-image: linear-gradient(gray, rgb(16, 26, 26));
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  user-select: none;
+}
+
+.topnavbar .clock {
+  width: 10vw;
+  height: 100%;
+  position: absolute;
+  top:0;
+  right:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -18,21 +18,35 @@
 <body>
   <script src="static/js/analytics.js"></script>
   <div class="megacontainer">
-    <iframe src="static/audio/theme.mp3" allow="autoplay" style="display:none" id="iframeAudio">
-    </iframe>
     <audio autoplay loop id="playAudio">
       <source src="static/audio/theme.mp3">
     </audio>
 
-    <script>
-      var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-      if (!isChrome) {
-        document.getElementById('#iframeAudio').remove()
-      }
-      else {
-        document.getElementById('#iframeAudio').remove() // just to make sure that it will not have 2x audio in the background 
-      }
-    </script>
+    <navbar class="topnavbar">
+      <p>PoyoOS!</p>
+      <div class="clock">
+        <p id="time">
+          <script>
+            const timeElement = document.getElementById("time");
+
+            function updateTime() {
+              const now = new Date();
+              const hours = now.getHours();
+              const minutes = now.getMinutes();
+              const seconds = now.getSeconds();
+
+              // Format the string with leading zeroes
+              const clockStr = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+              timeElement.innerText = clockStr;
+            }
+
+            updateTime();
+            setInterval(updateTime, 1000); 
+          </script>
+        </p>
+      </div>
+    </navbar>
 
     <navbar class="navbar">
       <div class="navbarBackground"></div>

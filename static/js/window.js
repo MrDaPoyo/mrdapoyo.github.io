@@ -54,18 +54,10 @@ function dragElement(elmnt) {
       elmnt.style.zIndex = "4";
     }
     function closeWindow() {
+      elmnt.classList.toggle("hidden");
       elmnt.style.display = "none";
       elmnt.style.zIndex = "4";
     }
-
-    toggler.addEventListener("click", function () {
-      var window = document.getElementById(elmnt.id);
-      if (window.style.display == "none") {
-        window.style.display = "block";
-      } else {
-        window.style.display = "none";
-      }
-    });
 
   } catch (e) {
     console.log(e);
@@ -75,7 +67,7 @@ function dragElement(elmnt) {
 function openNewWindow(appName) {
   var megaContainer = document.getElementsByClassName("megacontainer")[0];
   var newWindow = document.createElement("div");
-  newWindow.className = "window";
+  newWindow.classList = "window";
 
   if (appName == "settings") {
     fetch('../../apps/settings.html')
