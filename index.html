@@ -4,14 +4,17 @@
     <script defer src="static/js/bootloader.js"></script>
 </head>
 <body>
-    <video autoplay onended="loadDesktop()">
-        <source src="static/wallpapers/0816.mp4" type="video/mp4">
+    <video id="vid">
+        <source src="static/wallpapers/0816.mp4">
     </video>
-    <div class="bootloader">
+    <script defer>
+        document.getElementById('vid').play();
+    </script>
+    <!-- <div class="bootloader">
         <div class="half full sexy">
             <div class="border-overlay"></div>
             <div class="gradient-overlay"></div>
             <div class="bar"></div>
-        </div>
+        </div> -->
     </div>
 </body>
