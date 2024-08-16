@@ -14,7 +14,7 @@ appJson = {
   "poyopad": {
     "name": "PoyoPad",
     "width": "300px",
-    "height": "300px",
+    "height": "400px",
     "src": "apps/poyopad.html"
   }
 }
