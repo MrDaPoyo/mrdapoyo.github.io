@@ -53,8 +53,7 @@ function dragElement(elmnt) {
       elmnt.style.zIndex = "4";
     }
     function closeWindow() {
-      elmnt.classList.toggle("hidden");
-      elmnt.style.display = "none";
+      toggleWindowVisibility(elmnt.id);
       elmnt.style.zIndex = "4";
     }
     function toggleWindowVisibility(appName) {

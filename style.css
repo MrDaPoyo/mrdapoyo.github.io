@@ -64,7 +64,7 @@ body {
   position: absolute;
   top:0;
   left: 0;
-  background-image: linear-gradient(gray, rgb(16, 26, 26));
+  background-image: linear-gradient(rgb(78, 77, 77), rgb(16, 26, 26));
   color: white;
   display: flex;
   flex-direction: row;
