@@ -59,7 +59,7 @@ body {
 
 
 .topnavbar {
-  height: 4vh;
+  height: 5vh;
   width: 100%;
   position: absolute;
   top:0;
@@ -94,18 +94,19 @@ body {
 }
 .menu {
   position: absolute;
+  height: 5vh;
   top:0;
   left:0;
   display: flex;
   align-items: top;
   justify-content: left;
-  z-index: 10;
+  z-index: inherit;
 }
 
 
-.topnavbar .menuButton {
-  height: 4vh;
-  width: 4vh;
+.menuButton {
+  height: inherit;
+  width: 5vh;
   position: absolute;
   top:0;
   left:0;
