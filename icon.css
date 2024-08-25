@@ -36,26 +36,30 @@
 
 /* Right side */
 .icon:hover+.icon {
-    height: calc(80px + var(--dock-offset-right, 0px));
-    margin-top: calc(-20px + var(--dock-offset-right, 0px) * -1);
+    height: 11vh;
+    margin-top: -20px;
 }
 
 .icon:hover+.icon+.icon {
-    height: calc(70px + var(--dock-offset-right, 0px));
-    margin-top: calc(-10px + var(--dock-offset-right, 0px) * -1);
+    height: 11vh;
+    margin-top: -10px;
 }
 
 /* Left side */
 .icon:has(+ .icon:hover) {
-    height: calc(80px + var(--dock-offset-left, 0px));
-    margin-top: calc(-20px + var(--dock-offset-left, 0px) * -1);
+    height: 12vh;
+    margin-top: -20px;
 }
 
 .icon:has(+ .icon + .icon:hover) {
-    height: calc(70px + var(--dock-offset-left, 0px));
-    margin-top: calc(-10px + var(--dock-offset-left, 0px) * -1);
+    height: 11vh;
+    margin-top: -10px;
 }
 
+icon:hover.nearby icon {
+    transform-origin: center bottom;
+    transform: scale(1.25);
+  }
 
 
 .icon-container:active {
