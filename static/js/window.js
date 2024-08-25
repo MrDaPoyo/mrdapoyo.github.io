@@ -104,22 +104,23 @@ function openNewWindow(appName) {
         megaContainer.appendChild(newWindow);
         dragElement(newWindow);
       });
-  } else {
-    app = appJson[appName]; // Define app here
-
-    newWindow.style.width = app.width;
-    newWindow.style.height = app.height;
-    newWindow.style.display = "block";
-    var id = appName;
-    newWindow.id = id;
-
-    activeApps.push(app.name);
-    console.log(activeApps);
-
-    newWindow.innerHTML = `<div id='windowtop-${id}' class="windowtop"><div id='windowheader-${id}' class="windowheader">${app.name}</div><button id="windowclose-${id}">X</button></div><div class="windowcontent" id="windowcontent-${id}"><iframe width="100%" height="100%" src="${app.src}"></iframe><div class="resize-handle"></div>`;
+  } else if (appName == "newspaper") {
+    newWindow.innerHTML = `<div id='windowtop-newspaper' class="windowtop"><div id='windowheader-newspaper' class="windowheader">Newspaper</div><button id="windowclose-newspaper">X</button></div><iframe src="https://reporter.poyo.study" class="windowcontent" id="windowcontent-newspaper"></iframe>`;
+    newWindow.id = "newspaper";
     megaContainer.appendChild(newWindow);
     dragElement(newWindow);
-    console.log(activeApps);
+  } else {
+    app = appJson[appName]; // Define app here
+    fetch('../../'+app.src)
+    .then(response => response.text())
+    .then(htmlContent => {
+      newWindow.innerHTML = `<div id='windowtop-${appName}' class="windowtop"><div id='windowheader-${appName}' class="windowheader">${appName}</div><button id="windowclose-${appName}">X</button></div><div class="windowcontent" id="windowcontent-${appName}">${htmlContent}</div>`;
+      newWindow.id = appName;
+      newWindow.style.width = app.width;
+      newWindow.style.height = app.height;
+      megaContainer.appendChild(newWindow);
+      dragElement(newWindow);
+    });
   }
 }
 
