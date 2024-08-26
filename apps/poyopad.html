@@ -29,53 +29,50 @@
         margin-bottom: 10px;
     }
 </style>
-</head>
 
-<body>
+<div class="notepad-container">
+    <input type="text" id="fileLocation" class="notepad-input" placeholder="File Location (e.g., mynote)">
+    <textarea id="textArea" class="notepad-textarea" placeholder="Type something..."></textarea>
+    <button class="notepad-button" onclick="saveText()">Save</button>
+    <button class="notepad-button" onclick="loadText()">Load</button>
+    <button class="notepad-button" onclick="clearText()">Clear</button>
+</div>
 
-    <div class="notepad-container">
-        <input type="text" id="fileLocation" class="notepad-input" placeholder="File Location (e.g., mynote)">
-        <textarea id="textArea" class="notepad-textarea" placeholder="Type something..."></textarea>
-        <button class="notepad-button" onclick="saveText()">Save</button>
-        <button class="notepad-button" onclick="loadText()">Load</button>
-        <button class="notepad-button" onclick="clearText()">Clear</button>
-    </div>
-
-    <script>
-        function saveText() {
-            const fileLocation = document.getElementById('fileLocation').value;
-            const textArea = document.getElementById('textArea');
-            if (fileLocation) {
-                localStorage.setItem(fileLocation, textArea.value);
-                alert('Text saved to ' + fileLocation);
-            } else {
-                alert('Please enter a file location!');
-            }
+<script>
+    function saveText() {
+        const fileLocation = document.getElementById('fileLocation').value;
+        const textArea = document.getElementById('textArea');
+        if (fileLocation) {
+            localStorage.setItem(fileLocation, textArea.value);
+            alert('Text saved to ' + fileLocation);
+        } else {
+            alert('Please enter a file location!');
         }
+    }
 
-        function loadText() {
-            const fileLocation = document.getElementById('fileLocation').value;
-            const textArea = document.getElementById('textArea');
-            if (fileLocation) {
-                const savedText = localStorage.getItem(fileLocation);
-                if (savedText) {
-                    textArea.value = savedText;
-                } else {
-                    alert('No saved text found at ' + fileLocation);
-                }
+    function loadText() {
+        const fileLocation = document.getElementById('fileLocation').value;
+        const textArea = document.getElementById('textArea');
+        if (fileLocation) {
+            const savedText = localStorage.getItem(fileLocation);
+            if (savedText) {
+                textArea.value = savedText;
             } else {
-                alert('Please enter a file location!');
+                alert('No saved text found at ' + fileLocation);
             }
+        } else {
+            alert('Please enter a file location!');
         }
+    }
 
-        function clearText() {
-            const fileLocation = document.getElementById('fileLocation').value;
-            const textArea = document.getElementById('textArea');
-            if (fileLocation) {
-                localStorage.removeItem(fileLocation);
-                textArea.value = '';
-            } else {
-                alert('Please enter a file location!');
-            }
+    function clearText() {
+        const fileLocation = document.getElementById('fileLocation').value;
+        const textArea = document.getElementById('textArea');
+        if (fileLocation) {
+            localStorage.removeItem(fileLocation);
+            textArea.value = '';
+        } else {
+            alert('Please enter a file location!');
         }
-    </script>
+    }
+</script>
