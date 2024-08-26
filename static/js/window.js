@@ -16,6 +16,12 @@ appJson = {
     "width": "300px",
     "height": "400px",
     "src": "apps/poyopad.html"
+  },
+  "eshop": {
+    "name": "eShop",
+    "width": "600px",
+    "height": "500px",
+    "src": "apps/eshop.html"
   }
 }
 
@@ -104,7 +110,7 @@ function openNewWindow(appName) {
     fetch('../../'+app.src)
     .then(response => response.text())
     .then(htmlContent => {
-      newWindow.innerHTML = `<div id='windowtop-${appName}' class="windowtop"><div id='windowheader-${appName}' class="windowheader">${appName}</div><button id="windowclose-${appName}">X</button></div><div class="windowcontent" id="windowcontent-${appName}">${htmlContent}</div>`;
+      newWindow.innerHTML = `<div id='windowtop-${appName}' class="windowtop"><div id='windowheader-${appName}' class="windowheader">${app.name}</div><button id="windowclose-${appName}">X</button></div><div class="windowcontent" id="windowcontent-${appName}">${htmlContent}</div>`;
       newWindow.id = appName;
       newWindow.style.width = app.width;
       newWindow.style.height = app.height;
