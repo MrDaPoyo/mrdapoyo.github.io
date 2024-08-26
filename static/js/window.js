@@ -94,17 +94,7 @@ function openNewWindow(appName) {
   var megaContainer = document.getElementsByClassName("megacontainer")[0];
   var newWindow = document.createElement("div");
   newWindow.classList = "window";
-
-  if (appName == "settings") {
-    fetch('../../apps/settings.html')
-      .then(response => response.text())
-      .then(htmlContent => {
-        newWindow.innerHTML = `<div id='windowtop-settings' class="windowtop"><div id='windowheader-settings' class="windowheader">Settings</div><button id="windowclose-settings">X</button></div><div class="windowcontent" id="windowcontent-settings">${htmlContent}</div>`;
-        newWindow.id = "settings";
-        megaContainer.appendChild(newWindow);
-        dragElement(newWindow);
-      });
-  } else if (appName == "newspaper") {
+  if (appName == "newspaper") {
     newWindow.innerHTML = `<div id='windowtop-newspaper' class="windowtop"><div id='windowheader-newspaper' class="windowheader">Newspaper</div><button id="windowclose-newspaper">X</button></div><iframe src="https://reporter.poyo.study" class="windowcontent" id="windowcontent-newspaper"></iframe>`;
     newWindow.id = "newspaper";
     megaContainer.appendChild(newWindow);
