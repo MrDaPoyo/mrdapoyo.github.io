@@ -18,7 +18,7 @@ appJson = {
     "src": "apps/poyopad.html"
   },
   "eshop": {
-    "name": "eShop",
+    "name": "PoyoShop",
     "width": "600px",
     "height": "500px",
     "src": "apps/eshop.html"
