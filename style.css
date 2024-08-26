@@ -3,6 +3,10 @@
   src: url(static/fonts/BAHNSCHRIFT\ 5.TTF);
 }
 
+* {
+  user-select: none;
+}
+
 html,
 body {
   margin: 0;
