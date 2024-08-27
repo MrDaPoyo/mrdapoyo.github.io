@@ -22,6 +22,12 @@ appJson = {
     "width": "600px",
     "height": "550px",
     "src": "apps/eshop.html"
+  }, 
+  "about": {
+    "name": "System info",
+    "width": "600px",
+    "height": "550px",
+    "src": "apps/about.html"
   }
 }
 
