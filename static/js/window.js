@@ -3,31 +3,42 @@ appJson = {
     "name": "Web Browser",
     "width": "300px",
     "height": "400px",
-    "src": "apps/browser.html"
+    "src": "apps/browser.html",
+    "icon": "static/images/icons/planet.png"
   },
   "newspaper": {
     "name": "Newspaper",
     "width": "600px",
     "height": "500px",
-    "src": "https://reporter.poyo.study"
+    "src": "https://reporter.poyo.study",
+    "icon": "static/images/icons/newspaper.png"
   },
   "poyopad": {
     "name": "PoyoPad",
     "width": "300px",
     "height": "400px",
-    "src": "apps/poyopad.html"
+    "src": "apps/poyopad.html",
+    "icon": "static/images/icons/poyopad.png"
   },
   "eshop": {
     "name": "PoyoShop",
     "width": "600px",
     "height": "550px",
-    "src": "apps/eshop.html"
-  }, 
+    "src": "apps/eshop.html",
+    "icon": "static/gifs/eshop_wobbly_uwu_quick.gif"
+  },
   "about": {
     "name": "System info",
     "width": "600px",
     "height": "550px",
     "src": "apps/about.html"
+  }, 
+  "config": {
+    "name": "Settings",
+    "width": "600px",
+    "height": "550px",
+    "src": "apps/settings.html",
+    "icon": "static/images/icons/settings.png"
   }
 }
 
@@ -58,7 +69,7 @@ function dragElement(elmnt) {
       // call a function whenever the cursor moves:
       document.onmousemove = elementDrag;
     }
-    
+
     function elementDrag(event) {
       event.preventDefault();
       elmnt.style.top = (event.clientY - offsetY) + "px";
@@ -78,12 +89,12 @@ function dragElement(elmnt) {
       var windowElement = document.getElementById(appName);
       windowElement.classList.toggle("minimized");
       if (windowElement.classList.contains("hidden")) {
-        setTimeout(function() {
+        setTimeout(function () {
           windowElement.classList.remove("hidden");
           windowElement.style.display = "block";
         }, 100);
       } else {
-        setTimeout(function() {
+        setTimeout(function () {
           windowElement.classList.add("hidden");
           windowElement.style.display = "none";
         }, 100);
@@ -113,16 +124,16 @@ function openNewWindow(appName) {
     dragElement(newWindow);
   } else {
     app = appJson[appName]; // Define app here
-    fetch('../../'+app.src)
-    .then(response => response.text())
-    .then(htmlContent => {
-      newWindow.innerHTML = `<div id='windowtop-${appName}' class="windowtop"><div id='windowheader-${appName}' class="windowheader">${app.name}</div><button id="windowclose-${appName}">X</button></div><div class="windowcontent" id="windowcontent-${appName}">${htmlContent}</div>`;
-      newWindow.id = appName;
-      newWindow.style.width = app.width;
-      newWindow.style.height = app.height;
-      megaContainer.appendChild(newWindow);
-      dragElement(newWindow);
-    });
+    fetch('../../' + app.src)
+      .then(response => response.text())
+      .then(htmlContent => {
+        newWindow.innerHTML = `<div id='windowtop-${appName}' class="windowtop"><div id='windowheader-${appName}' class="windowheader">${app.name}</div><button id="windowclose-${appName}">X</button></div><div class="windowcontent" id="windowcontent-${appName}">${htmlContent}</div>`;
+        newWindow.id = appName;
+        newWindow.style.width = app.width;
+        newWindow.style.height = app.height;
+        megaContainer.appendChild(newWindow);
+        dragElement(newWindow);
+      });
   }
 }
 
@@ -136,13 +147,37 @@ function saveWallpaper() {
 }
 
 if (document.addEventListener) {
-  document.addEventListener('contextmenu', function(e) {
+  document.addEventListener('contextmenu', function (e) {
     alert("You've tried to open context menu"); //here you draw your own menu
     e.preventDefault();
   }, false);
 } else {
-  document.attachEvent('oncontextmenu', function() {
+  document.attachEvent('oncontextmenu', function () {
     alert("You've tried to open context menu");
 
   });
 }
+
+function addIconsToNavbar(json) {
+  var navbar = document.getElementById("navbar");
+  Object.keys(json).forEach(function(key) {
+    if (json[key].icon == undefined) {
+      return;
+    } else {
+    var button = document.createElement("button");
+    button.classList = "icon";
+    button.id = "button-" + key;
+    button.onclick = function () {
+      openNewWindow(key);
+    }
+    var iconContainer = document.createElement("div"); 
+    iconContainer.classList = "icon-container";
+    var icon = document.createElement("img");
+    icon.src = json[key].icon;
+    iconContainer.appendChild(icon);
+    button.appendChild(iconContainer);
+    navbar.appendChild(button);}
+  });
+}
+
+addIconsToNavbar(appJson);
