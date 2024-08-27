@@ -35,8 +35,8 @@ appJson = {
   }, 
   "config": {
     "name": "Settings",
-    "width": "600px",
-    "height": "550px",
+    "width": "400px",
+    "height": "250px",
     "src": "apps/settings.html",
     "icon": "static/images/icons/settings.png"
   }
