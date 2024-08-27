@@ -30,7 +30,7 @@ appJson = {
   "about": {
     "name": "System info",
     "width": "600px",
-    "height": "550px",
+    "height": "300px",
     "src": "apps/about.html"
   }, 
   "config": {
