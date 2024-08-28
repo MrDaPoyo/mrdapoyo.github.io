@@ -191,6 +191,7 @@ function addIconsToNavbar(json) {
     iconContainer.classList = "icon-container";
     var icon = document.createElement("img");
     icon.src = json[key].icon;
+    icon.alt = json[key].name + " icon";
     iconContainer.appendChild(icon);
     button.appendChild(iconContainer);
     navbar.appendChild(button);}
