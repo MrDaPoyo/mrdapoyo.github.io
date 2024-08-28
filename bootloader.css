@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Bahnschrift";
+  src: url(static/fonts/BAHNSCHRIFT\ 5.TTF);
+}
+
 body {
   padding: 20px;
   background: black;
@@ -5,6 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  font-family: 'Bahnschrift', sans-serif;
 }
 
 p {
@@ -89,4 +95,10 @@ video {
   width: 398px;
   height: 28px;
   border: 1px solid rgba(255, 255, 255, .15);
+}
+
+h1 {
+  font-size: 5em;
+  margin: 0;
+  color: white;
 }
