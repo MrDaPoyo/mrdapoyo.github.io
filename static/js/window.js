@@ -4,21 +4,21 @@ appJson = {
     "width": "400px",
     "height": "400px",
     "src": "apps/browser.html",
-    "icon": "static/images/icons/planet.png"
+    "icon": "static/images/icons/planet.webp"
   },
   "newspaper": {
     "name": "Newspaper",
     "width": "600px",
     "height": "500px",
     "src": "https://reporter.poyo.study",
-    "icon": "static/images/icons/newspaper.png"
+    "icon": "static/images/icons/newspaper.webp"
   },
   "poyopad": {
     "name": "PoyoPad",
     "width": "400px",
     "height": "400px",
     "src": "apps/poyopad.html",
-    "icon": "static/images/icons/poyopad.png"
+    "icon": "static/images/icons/poyopad.webp"
   },
   "eshop": {
     "name": "PoyoShop",
@@ -38,14 +38,14 @@ appJson = {
     "width": "400px",
     "height": "250px",
     "src": "apps/settings.html",
-    "icon": "static/images/icons/settings.png"
+    "icon": "static/images/icons/settings.webp"
   },
   "poyoxplorer": {
     "name": "PoyoXPlorer",
     "width": "400px",
     "height": "300px",
     "src": "apps/poyoxplorer.html",
-   // "icon": "static/gifs/filesystem.png"
+   // "icon": "static/gifs/filesystem.webp"
   },
 }
 
