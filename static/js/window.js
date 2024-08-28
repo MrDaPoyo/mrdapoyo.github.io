@@ -1,7 +1,7 @@
 appJson = {
   "browser": {
     "name": "Web Browser",
-    "width": "300px",
+    "width": "400px",
     "height": "400px",
     "src": "apps/browser.html",
     "icon": "static/images/icons/planet.png"
@@ -15,7 +15,7 @@ appJson = {
   },
   "poyopad": {
     "name": "PoyoPad",
-    "width": "300px",
+    "width": "400px",
     "height": "400px",
     "src": "apps/poyopad.html",
     "icon": "static/images/icons/poyopad.png"
@@ -23,7 +23,7 @@ appJson = {
   "eshop": {
     "name": "PoyoShop",
     "width": "600px",
-    "height": "550px",
+    "height": "500px",
     "src": "apps/eshop.html",
     "icon": "static/gifs/eshop_wobbly_uwu_quick.gif"
   },
@@ -39,7 +39,14 @@ appJson = {
     "height": "250px",
     "src": "apps/settings.html",
     "icon": "static/images/icons/settings.png"
-  }
+  },
+  //"poyoxplorer": {
+  //  "name": "PoyoXPlorer",
+  //  "width": "400px",
+  //  "height": "300px",
+  //  "src": "apps/poyoxplorer.html",
+  //  "icon": "static/gifs/filesystem.png"
+  //},
 }
 
 appJson = JSON.stringify(appJson);
@@ -120,6 +127,8 @@ function openNewWindow(appName) {
   if (appName == "newspaper") {
     newWindow.innerHTML = `<div id='windowtop-newspaper' class="windowtop"><div id='windowheader-newspaper' class="windowheader">Newspaper</div><button id="windowclose-newspaper">X</button></div><iframe src="https://reporter.poyo.study" class="windowcontent" id="windowcontent-newspaper"></iframe>`;
     newWindow.id = "newspaper";
+    newWindow.style.width = "600px";
+    newWindow.style.height = "500px";
     megaContainer.appendChild(newWindow);
     dragElement(newWindow);
   } else {

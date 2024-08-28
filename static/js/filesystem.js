@@ -1,8 +1,3 @@
-import Cookies from 'js-cookie';
-
-// Import the 'js-cookie' library
-
-// Function to create the imaginary filesystem
 function createFilesystem() {
     // Define the filesystem structure
     const filesystem = {
@@ -25,25 +20,11 @@ function createFilesystem() {
             files: {},
         },
     };
-
-    // Store the filesystem as a JSON string in a cookie
-    Cookies.set('filesystem', JSON.stringify(filesystem));
+    return filesystem;
 }
 
-// Function to read the imaginary filesystem from the cookie
-function readFileSystem() {
-    // Get the filesystem JSON string from the cookie
-    const filesystemString = Cookies.get('filesystem');
-
-    // Parse the JSON string to get the filesystem object
-    const filesystem = JSON.parse(filesystemString);
-
-    // Use the filesystem object as needed
-    console.log(filesystem);
+console.log(createFilesystem());
+filesystem = createFilesystem();
+function showFileSystem() {
+    console.log("yep");
 }
-
-// Call the createFilesystem function to create the filesystem
-createFilesystem();
-
-// Call the readFileSystem function to read the filesystem from the cookie
-readFileSystem();
