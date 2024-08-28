@@ -40,13 +40,13 @@ appJson = {
     "src": "apps/settings.html",
     "icon": "static/images/icons/settings.png"
   },
-  //"poyoxplorer": {
-  //  "name": "PoyoXPlorer",
-  //  "width": "400px",
-  //  "height": "300px",
-  //  "src": "apps/poyoxplorer.html",
-  //  "icon": "static/gifs/filesystem.png"
-  //},
+  "poyoxplorer": {
+    "name": "PoyoXPlorer",
+    "width": "400px",
+    "height": "300px",
+    "src": "apps/poyoxplorer.html",
+   // "icon": "static/gifs/filesystem.png"
+  },
 }
 
 appJson = JSON.stringify(appJson);
