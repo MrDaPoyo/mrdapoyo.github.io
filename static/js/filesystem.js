@@ -28,3 +28,4 @@ filesystem = createFilesystem();
 function showFileSystem() {
     console.log("yep");
 }
+showFileSystem();

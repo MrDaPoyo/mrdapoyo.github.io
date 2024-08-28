@@ -131,7 +131,15 @@ function openNewWindow(appName) {
     newWindow.style.height = "500px";
     megaContainer.appendChild(newWindow);
     dragElement(newWindow);
-  } else {
+  } else if (appName == "poyoxplorer") {
+    newWindow.innerHTML = `<div id='windowtop-poyoxplorer' class="windowtop"><div id='windowheader-poyoxplorer' class="windowheader">PoyoXPlorer</div><button id="windowclose-poyoxplorer">X</button></div><iframe src="apps/poyoxplorer.html" class="windowcontent" id="windowcontent-poyoxplorer"></iframe>`;
+    newWindow.id = "poyoxplorer";	
+    newWindow.style.width = "600px";
+    newWindow.style.height = "500px";
+    megaContainer.appendChild(newWindow);
+    dragElement(newWindow);
+  }
+    else {
     app = appJson[appName]; // Define app here
     fetch('../../' + app.src)
       .then(response => response.text())
