@@ -13,7 +13,7 @@
         document.getElementById("successive-os").appendChild(o);
         
         // Add transition animation to move right
-        o.style.transition = 'transform 2s linear';
+        o.style.transition = 'transform 4s linear';
         setTimeout(() => {
             o.style.transform = 'translateX(100vw)';
         }, 10);
@@ -26,7 +26,7 @@
                 } else {
                     checkIfOutOfBounrds()
                 }
-            }, 500);
+            }, 530);
         }
 
         checkIfOutOfBounds();
