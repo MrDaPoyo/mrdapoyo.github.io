@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
     <head>
+        <!--- hi there! I'm so glad to see you here, <3. --->
+        <!--- maybe we could have a chat? I'm @dapoyo on discord as of november 2025. --->
+        
         <title>Clouds, Rain and Cinnamon Rolls</title>
         
         <meta charset="UTF-8" />
@@ -19,6 +22,10 @@
                 background-color: transparent;
                 margin: 0;
                 padding: 2vh;
+            }
+            
+            p {
+                padding: 5px;
             }
             
             #background {
@@ -70,6 +77,7 @@
             
             <script>
                 const body = document.body;
+                const head = document.head;
                 const background = document.getElementById("background");
                 
                 const keywordMap = [
@@ -77,6 +85,20 @@
                     { words: "beautiful, relaxing, stunning, peaceful, perfect, love", img: "assets/images/alps.jpg", keywordColor: "lightgreen", textColor: "white" },
                     { words: "pay, kinda broke", img: "assets/images/broke.jpg", keywordColor: "green", textColor: "white" }
                 ];
+                
+                
+                function preloadBackgrounds(images) {
+                    images.forEach(url => {
+                        const link = document.createElement("link");
+                        link.rel = "preload";
+                        link.as = "image";
+                        link.href = url;
+                        head.appendChild(link);
+                    });
+                }
+            
+                const bgImages = keywordMap.map(kw => kw.img);
+                preloadBackgrounds(bgImages);
                 
                 const targets = [...document.querySelectorAll("p, h1, h2, h3, h4, h5, h6")];
                 
@@ -104,7 +126,6 @@
                 
                 function enableKeyword(span) {
                     const img = span.dataset.img;
-                    preloadImage(img)
                     const category = span.dataset.category;
                     const keywordColor = span.dataset.keywordColor || "yellow";
                     const textColor = span.dataset.textColor || "white";
@@ -122,11 +143,6 @@
                 }
                 
                 spans.forEach(s => s.addEventListener("mouseover", () => enableKeyword(s)));
-                
-                function preloadImage(url) {
-                    const img = new Image();
-                    img.src = url;
-                }
             </script>
         </main>
     </body>
