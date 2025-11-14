@@ -2,39 +2,132 @@
 <html lang="en">
     <head>
         <title>Clouds, Rain and Cinnamon Rolls</title>
+        
         <meta charset="UTF-8" />
         <meta name="author" content="Poyo" />
         <meta name="description" content="Do you like clouds?" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <style>
+            * {
+                box-sizing: border-box;
+                transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+            }
+            
+            html, body {
+                color: black;
+                background-color: transparent;
+                margin: 0;
+                padding: 2vh;
+            }
+            
+            #background {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background-size: cover;
+                padding: 0;
+                margin: 0;
+            }
+        </style>
     </head>
     <body>
-        <h1>Hi there!</h1>
-        <h3>My name is Poyo.</h3>
-        <hr />
-        <p>I love clouds. Like, I really fucking love clouds.</p>
-        <p>Have you ever seen a cloud? They're like, so fluffy and white and just... stunning.</p>
-        <p>Sometimes I just lay on the grass and watch the clouds go by for hours. It's so peaceful, so perfect.</p>
-        <p>
-            Do you like clouds too? Maybe we can watch them together sometime. You'd have to pay for the trip tho, I'm
-            kinda broke.
-        </p>
-        <hr />
-        <p>
-            I enjoy cinnamon rolls. I like anything sweet tbh, just not gummy bears. My dad used to work at a gummy bear
-            factory and he told me they're made from pork fat. Disgusting.
-        </p>
-        <p>I like baking. I like spending time with my few friends. Going to the gym is awesome.</p>
-        <p>
-            I ride the bus and underground everyday. Even though I wear noise-cancelling earbuds (I love them sm) I find
-            the sounds of the underground relaxing. I particularly like when I'm riding the bus and it rains.
-        </p>
-        <p>
-            Can you believe it? Life is so beautiful! I don't believe in God but we gotta thank the Big Bang for this.
-        </p>
-        <hr />
-        <p>
-            What do you like? Shoot me an email at <code>aifqewxiv@tsc.sss</code> (tip: it's caesar encoded 4 times
-            frontwards)
-        </p>
+        <div id="background"></div>
+        <main>
+            <h1>Hi there!</h1>
+            <h3>My name is Poyo.</h3>
+            <hr />
+            <p>
+                I love clouds. Like, I really fucking love clouds.
+            </p>
+            <p>Have you ever seen a cloud? They're like, so fluffy and white and just... stunning.</p>
+            <p>Sometimes I just lay on the grass and watch the clouds go by for hours. It's so peaceful, so perfect.</p>
+            <p>
+                Do you like clouds too? Maybe we can watch them together sometime. You'd have to pay for the trip tho, I'm
+                kinda broke.
+            </p>
+            <hr />
+            <p>
+                I enjoy cinnamon rolls. I like anything sweet tbh, just not gummy bears. My dad used to work at a gummy bear
+                factory and he told me they're made from pork fat. Disgusting.
+            </p>
+            <p>I like baking. I like spending time with my few friends. Going to the gym is awesome.</p>
+            <p>
+                I ride the bus and underground everyday. Even though I wear noise-cancelling earbuds (I love them sm), I find
+                the sounds of the underground relaxing. I particularly like when I'm riding the bus and it rains.
+            </p>
+            <p>
+                Can you believe it? Life is so beautiful! I don't believe in God but we gotta thank the Big Bang for this.
+            </p>
+            <hr />
+            <p>
+                What do you like? Shoot me an email at <code>aifqewxiv@tsc.sss</code> (tip: it's <a href="https://en.wikipedia.org/wiki/Caesar_cipher">caesar chiphered</a> 4 times
+                frontwards)
+            </p>
+            
+            <script>
+                const body = document.body;
+                const background = document.getElementById("background");
+                
+                const keywordMap = [
+                    { words: "cloud, clouds", img: "assets/images/clouds.jpg", keywordColor: "yellow", textColor: "white" },
+                    { words: "beautiful, relaxing, stunning, peaceful, perfect, love", img: "assets/images/alps.jpg", keywordColor: "lightgreen", textColor: "white" },
+                    { words: "pay, kinda broke", img: "assets/images/broke.jpg", keywordColor: "green", textColor: "white" }
+                ];
+                
+                const targets = [...document.querySelectorAll("p, h1, h2, h3, h4, h5, h6")];
+                
+                function wrapKeywords() {
+                    targets.forEach(el => {
+                        let html = el.innerHTML;
+                        
+                        keywordMap.forEach(({ words, img, keywordColor, textColor }, idx) => {
+                            const wordList = words.split(",").map(w => w.trim());
+                            const pattern = wordList.join("|");
+                            const re = new RegExp(`\\b(${pattern})\\b`, "gi");
+                            
+                            html = html.replace(re, match =>
+                                                `<span class="kw" data-img="${img}" data-category="${idx}" data-keywordColor="${keywordColor || 'yellow'}" data-textColor="${textColor || 'white'}">${match}</span>`
+                                               );
+                        });
+                        
+                        el.innerHTML = html;
+                    });
+                }
+                
+                wrapKeywords();
+                
+                const spans = [...document.querySelectorAll(".kw")];
+                
+                function enableKeyword(span) {
+                    const img = span.dataset.img;
+                    preloadImage(img)
+                    const category = span.dataset.category;
+                    const keywordColor = span.dataset.keywordColor || "yellow";
+                    const textColor = span.dataset.textColor || "white";
+                    
+                    background.style.backgroundImage = `url("${img}")`;
+                    body.style.color = textColor;
+                    
+                    spans.forEach(s => {
+                        if (s.dataset.category === category) {
+                            s.style.color = keywordColor;
+                        } else {
+                            s.style.color = s.dataset.textColor || textColor;
+                        }
+                    });
+                }
+                
+                spans.forEach(s => s.addEventListener("mouseover", () => enableKeyword(s)));
+                
+                function preloadImage(url) {
+                    const img = new Image();
+                    img.src = url;
+                }
+            </script>
+        </main>
     </body>
 </html>
