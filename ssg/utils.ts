@@ -24,5 +24,14 @@ export namespace utils {
             await mkdir(dir)
         }
     }
+
+    export function removeLinesFromString(source: string, init_line: number, end_line: number): string {
+        var lines = source.split('\n');
+        lines.splice(init_line, end_line);
+
+        // join the array back into a single string
+        var newtext = lines.join('\n');
+        return newtext;
+    }
 }
 
