@@ -1,19 +1,7 @@
 import { markdown } from './markdown.ts'
-const string = `
----
-title: awaa
-tags: curiosity, cats
-layout: thatswhatshesaid
-djsafjlsdjfldf: awaaa
----
 
-# masterpiece
----
-test: oni
----
+let test_md = await Bun.file("../src/test.md").text()
 
-wassup`
-
-let processing = markdown.splitMarkdownFrontmatter(string);
+let processing = markdown.splitMarkdownFrontmatter(test_md);
 processing.content = markdown.parseMarkdownString(processing.content)
 console.log(processing);

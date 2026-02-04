@@ -1,4 +1,5 @@
-import type { file, file_metadata } from './types.ts';
+import { default_md_parsing_options, type file, type md_parsing_options } from './types.ts';
+import { utils } from './utils.ts'
 import matter from 'gray-matter';
 
 export namespace markdown {
@@ -33,7 +34,25 @@ export namespace markdown {
         return file;
     }
 
-    export function parseMarkdownString(markdown: string): string {
-        return Bun.markdown.html(markdown);
+    export function parseMarkdownString(
+        markdown: string,
+        options: md_parsing_options = default_md_parsing_options
+    ): string {
+        return Bun.markdown.render(markdown, {
+            heading: (children, { level }) => {
+                let offset = utils.clamp(level + options.heading_offset, 1, 6);
+                return `<h${offset} class="title">${children}</h${offset}>`;
+            },
+            // .:xXx:. :3
+            image: (children, meta) => {
+                if (!options.allowImages) {
+                    return null;
+                }
+
+                meta = utils.trimObjectItems(meta);
+
+                return `<img src="${meta.src}" ${meta.title ? `alt="${meta.title}"` : ''} />`;
+            },
+        });
     }
 }

@@ -6,15 +6,15 @@ if (!process.env.SOURCE_DIR) {
     process.exit(0);
 }
 
-interface directory {
-    path: string; // relative path from "root" (./src/)
-    sub_directories: []; // for recursion
-    files: []; // markdown (.md) files
+const source_dir = utils.findRootDir();
+const output_dir = process.env.SOURCE_DIR;
+
+if (!output_dir) {
+    console.error("Missing OUTPUT_DIR");
+    process.exit(0);
 }
 
-const root_dir = utils.findRootDir();
-
-await utils.ensureDir(root_dir);
-const files = await readdir(root_dir, { recursive: true });
+await utils.ensureDir(source_dir);
+const files = await readdir(source_dir, { recursive: true });
 
 console.log(files);

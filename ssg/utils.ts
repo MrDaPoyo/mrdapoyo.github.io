@@ -33,5 +33,19 @@ export namespace utils {
         var newtext = lines.join('\n');
         return newtext;
     }
+
+    export function trimObjectItems(src_array: any) {
+        for (const [k, v] of Object.entries(src_array)) {
+            if (Object(v) === v)
+                trimObjectItems(v)
+            else if (typeof v === 'string')
+                src_array[k] = v.trim();
+        }
+        return src_array;
+    }
+
+    export function clamp(integer: number, min: number, max: number) {
+        return Math.min(Math.max(integer, min), max);
+    };
 }
 
