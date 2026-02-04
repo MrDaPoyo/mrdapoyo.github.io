@@ -1,7 +1,8 @@
 import { markdown } from './markdown.ts'
+import { utils } from './utils.ts';
 
 let test_md = await Bun.file("../src/test.md").text()
 
 let processing = markdown.splitMarkdownFrontmatter(test_md);
-processing.content = markdown.parseMarkdownString(processing.content)
+processing.content = await markdown.parseMarkdownString(processing.content)
 console.log(processing);

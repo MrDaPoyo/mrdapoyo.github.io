@@ -48,10 +48,14 @@ export namespace markdown {
                 if (!options.allowImages) {
                     return null;
                 }
-
                 meta = utils.trimObjectItems(meta);
-
                 return `<img src="${meta.src}" ${meta.title ? `alt="${meta.title}"` : ''} />`;
+            },
+            code: (children, meta) => {
+                return `<code>${children}</code>`;
+            },
+            text: (text) => {
+                return `<p>${text}</p>`;
             },
         });
     }

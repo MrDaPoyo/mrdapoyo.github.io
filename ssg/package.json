@@ -4,7 +4,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "bun --env-file=../.env run index.ts"
+    "build": "bun --env-file=../.env run index.ts",
+    "test": "bun --env-file=../.env run test.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"

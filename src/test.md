@@ -9,7 +9,7 @@ layout: thatswhatshesaid
 ---
 
 # masterpiece
-#### uwu
+### uwu
 ---
 test: oni
 
@@ -18,8 +18,15 @@ test: oni
 I have a dream that people are nice
 be nice mf
 
-<script>
+```js
 console.log("haii");
-</script>
+```
+
+```ts
+typescripthere
+```
+
+---
 
 ok??
+========

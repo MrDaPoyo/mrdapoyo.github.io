@@ -1,3 +1,4 @@
+import path from "node:path";
 import { utils } from "./utils.ts";
 import { readdir } from "node:fs/promises";
 
@@ -7,7 +8,7 @@ if (!process.env.SOURCE_DIR) {
 }
 
 const source_dir = utils.findRootDir();
-const output_dir = process.env.SOURCE_DIR;
+const output_dir = path.join("..", process.env.OUTPUT_DIR);
 
 if (!output_dir) {
     console.error("Missing OUTPUT_DIR");
@@ -15,6 +16,8 @@ if (!output_dir) {
 }
 
 await utils.ensureDir(source_dir);
+await utils.ensureDir(output_dir);
+
 const files = await readdir(source_dir, { recursive: true });
 
 console.log(files);
