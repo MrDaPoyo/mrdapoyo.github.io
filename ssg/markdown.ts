@@ -1,4 +1,3 @@
-import { utils } from './utils.ts'
 import type { file, file_metadata } from './types.ts';
 import matter from 'gray-matter';
 
@@ -23,13 +22,14 @@ export namespace markdown {
     */
 
     export function splitMarkdownFrontmatter(source: string): file {
-        const { data, content } = matter(source);
+        source = source.trim();
+        let { data, content } = matter(source);
 
         let file = {
-            content: content,
+            content: content.trim(),
             metadata: data
         } as file;
-        
+
         return file;
     }
 

@@ -1,5 +1,6 @@
 import { markdown } from './markdown.ts'
-const string = `---
+const string = `
+---
 title: awaa
 tags: curiosity, cats
 layout: thatswhatshesaid
