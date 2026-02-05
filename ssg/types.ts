@@ -15,7 +15,7 @@ export type file = {
  * options for parsing the markdown.
  * heading_offset: set a greater number to make the outputted HTML headers smaller. e.g: # isnt \<h1>, but \<h2>
  * allow(Item): enable conversion from markdown to (Item)s
- * autolinks:
+ * autolinks: 
 */
 export type md_parsing_options = {
     heading_offset: number,
