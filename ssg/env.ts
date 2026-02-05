@@ -14,8 +14,8 @@ declare module "bun" {
 
 export const markdown_parsing_config = {
     ...default_md_parsing_options,
-    heading_offset: Bun.env.COMP_HEADINGS,
-    allowScripts: Bun.env.MD_SCRIPTS,
-    allowImages: Bun.env.MD_IMAGES,
-    autolinks: Bun.env.MD_AUTOLINKS,
+    // heading_offset: Bun.env.COMP_HEADINGS,
+    // allowScripts: Bun.env.MD_SCRIPTS,
+    // allowImages: Bun.env.MD_IMAGES,
+    // autolinks: Bun.env.MD_AUTOLINKS,
 } as md_parsing_options;
