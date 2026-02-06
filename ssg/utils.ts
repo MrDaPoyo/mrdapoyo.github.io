@@ -8,12 +8,12 @@ export namespace utils {
     }
 
     export function findRootDir(): string {
-        const root_dir = resolve("..", process.env.SOURCE_DIR);
+        const root_dir = resolve("..", Bun.env.SOURCE_DIR);
         return root_dir;
     }
 
     export function relativeFromRootDir(path: string): string {
-        const relative_path = join(findRootDir(), path);
+        const relative_path = resolve(findRootDir(), path);
         return relative_path;
     }
 
@@ -78,6 +78,10 @@ export namespace utils {
         } while (Math.round(Math.abs(bytes) * r) / r >= thresh && u < units.length - 1);
 
         return bytes.toFixed(dp) + ' ' + units[u];
+    }
+
+    export function findInArray<T, K extends keyof T>(arr: readonly T[], key: K, value: T[K]): T | undefined {
+        return arr.find(item => item[key] === value);
     }
 }
 

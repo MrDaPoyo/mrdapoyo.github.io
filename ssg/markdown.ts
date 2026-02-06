@@ -36,10 +36,11 @@ export namespace markdown {
         return file;
     }
 
-    export function parseMarkdownString(
+    export async function parseMarkdownString(
         markdown: string,
         options: md_parsing_options = markdown_parsing_config
-    ): string {
+    ): Promise<string> {
+        let templates = await comps.compileComponents();
         return Bun.markdown.render(markdown, {
             heading: (children, { level }) => {
                 let offset = utils.clamp(level + options.heading_offset, 1, 6);
@@ -54,11 +55,13 @@ export namespace markdown {
                 return `<img src="${meta.src}" ${meta.title ? `alt="${meta.title}"` : ''} />`;
             },
             code: (children, meta) => {
-                return comps.codeBlock(children, meta?.language || "Unknown")
+                let code_template = utils.findInArray(templates, "component", "code");
+                return comps.codeBlock(code_template.pug, children, meta?.language)
+                // return comps.codeBlock(children, meta?.language || "Unknown")
             },
-            paragraph: (text) => {
+            /* paragraph: (text) => {
                 return `<p>${text}</p>`;
-            },
+            }, */
         });
     }
 }

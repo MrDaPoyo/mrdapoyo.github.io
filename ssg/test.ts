@@ -2,6 +2,7 @@ import { mkdir } from 'node:fs';
 import { markdown } from './markdown.ts'
 import { cp } from 'node:fs/promises';
 import { utils } from './utils.ts';
+import { comps } from './components.ts';
 
 let test_md = await Bun.file("../src/test.md").text()
 

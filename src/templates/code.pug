@@ -1,0 +1,13 @@
+- 
+  var lang =  language ? language : "Unknown";
+  var lang_lower = lang.toLowerCase();
+  const lines = code.split('\n').length;
+  const size = utils.humanByteSize(code.length, false, 2);
+
+figure(data-language=lang_lower)
+  figcaption
+    span.code-language= lang
+    span.code-stats #{lines} lines - #{size}
+
+  pre
+    code(class=`code-language-${lang_lower}`)= code
