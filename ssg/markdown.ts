@@ -56,12 +56,20 @@ export namespace markdown {
             },
             code: (children, meta) => {
                 let code_template = utils.findInArray(templates, "component", "code");
-                return comps.codeBlock(code_template.pug, children, meta?.language)
+                return comps.renderTemplate(code_template.pug, {
+                    code: children,
+                    language: meta?.language
+                })
                 // return comps.codeBlock(children, meta?.language || "Unknown")
             },
-            /* paragraph: (text) => {
-                return `<p>${text}</p>`;
-            }, */
+            paragraph: (text) => {
+                return `${text}\n`;
+            },
+        }, {
+            autolinks: true,
+            latexMath: true,
+            strikethrough: true,
+            underline: true,
         });
     }
 }

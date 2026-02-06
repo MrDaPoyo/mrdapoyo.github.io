@@ -1,8 +1,8 @@
 - 
-  var lang =  language ? language : "Unknown";
+  var lang =  args.language ? args.language : "Unknown";
   var lang_lower = lang.toLowerCase();
-  const lines = code.split('\n').length;
-  const size = utils.humanByteSize(code.length, false, 2);
+  const lines = args.code.split('\n').length;
+  const size = utils.humanByteSize(args.code.length, false, 2);
 
 figure(data-language=lang_lower)
   figcaption
@@ -10,4 +10,4 @@ figure(data-language=lang_lower)
     span.code-stats #{lines} lines - #{size}
 
   pre
-    code(class=`code-language-${lang_lower}`)= code
+    code(class=`code-language-${lang_lower}`)= args.code

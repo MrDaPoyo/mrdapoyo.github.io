@@ -23,10 +23,10 @@ export namespace comps {
     return compiled_components;
   }
 
-  export function codeBlock(template: any, code: string, language?: string): string {
+  export function renderTemplate(template: any, args: any): string {
     return template({
-      code,
-      utils
+      args,
+      utils // passing this buncha helper functions makes things much easier when templating 
     })
   }
 }
