@@ -27,6 +27,7 @@
             margin-inline: auto;
             display: flex;
             flex-direction: column;
+            gap: 2vh;
             overflow-y: scroll;
         }
 
@@ -36,11 +37,14 @@
         h4,
         h5,
         h6 {
-            margin-top: 0.5rem;
-            margin-bottom: 0;
+            margin-block: 4px;
+
+            & + * {
+                margin: 0;
+            }
         }
 
-        a {
+        a, q {
             color: #cf5b2e;
         }
 
@@ -60,6 +64,16 @@
             blockquote {
                 margin-bottom: 0;
             }
+
+            :first-child {
+                margin-top: 0;
+            }
+        }
+
+        .buttons {
+            p {
+                margin-block: 2px;
+            }
         }
 
         @media screen and (min-width: 800px) {
@@ -71,38 +85,71 @@
 </head>
 
 <body>
-    <noscript>Either you are on really old hardware, or you're privacy-paranoid. Either way, I don't track who you are
-        using Javascript. Don't worry!</noscript>
-    <h1>Hi there!</h1>
-    <p>I'm Poyo. I like replacing oxygen with CO<sub>2</sub>.</p>
+    <noscript>Either you are on really old hardware, or you're privacy-paranoid. Either way, I don't track who you are using Javascript. Don't worry!</noscript>
+    <section class="intro">
+        <h1>Hi there!</h1>
+        <p>I'm Poyo. I like replacing oxygen with CO<sub>2</sub>.</p>
+    </section>
+    <section class="skills">
+        <h3>I've got some tricks under my sleeve.</h3>
+        <p>I'm good at web development. I sometimes read the <a href="https://en.wikipedia.org/wiki/MDN_Web_Docs">MDN Web Docs</a> for fun, and learn about weird/obscure HTML tags. Such as <code>&lt;meter&gt;</code>!</p>
+        <span>Can you believe this?? <meter min="0" max="100" value="69"></meter> Not a single ounce of CSS.</span><br><br>
+        <span>I enjoy writing C, Go and TypeScript programs that I will never touch again. My code isn't usually pretty. But I do improve a <em>liiiiiiiiiiitle</em> bit with every LOC I write.</span>
+    </section>
+    <section class="projects">
+        <h3>My stuff.</h3>
+        <p>I have made a couple of projects along the years. Here's a selection of my coolest so far:</p>
+        <ul>
+            <li>
+                <p><strong>★ Indieseas</strong> was an "indie web" search engine that indexed websites based on 88x31 button relations, preventing corporate slop from getting indexed (ish).<br>At its peak, it had over 20k indexed buttons! I'm very proud of this project.</p>
+            </li>
+            <li>
+                <p><strong>★ PoyoWeb</strong> was a static website hosting service. Even though it now is a joke, due to how bad it was, I learnt so many things from it.<br>It will always have a special place in my heart &lt;3</p>
+            </li>
+            
+            <li>
+                <p><a href="https://tangled.org/poy.ooo/farga"><strong>(WIP) Farga</strong></a> is a work-in-progress git forge. It's lightweight. :P</p>
+            </li><li>
+                <p><a href="https://dofi.poy.ooo"><strong>Dofi</strong></a> is a fantasy console I wrote in C using Raylib. It's very buggy but I did learn a lot! Pointers made sense from then onwards.</p>
+            </li>
+            <li>
+                <p><a href="https://github.com/MrDaPoyo/get-rekt-video"><strong>GET REKT!!</strong></a> lets you prank your friends. You send them a link, which returns a customized meme video with publicly available data that looks dangeous.<br>
+                Behind the scenes, it uses FFmpeg to overlay timed text over the meme matching its background song's BPM.</p>
+            </li>
+            <li>
+                <p><a href="https://github.com/MrDaPoyo/pictoroom"><strong>Pictoroom</strong></a> Is a Pictochat clone that works online. Chat with your friends using little drawings.</p>
+            </li>
+        </ul>
+    </section>
+    <section class="bangers">
+        <h3>Poyo's curated <em>Certified Bangers</em>&trade; playlist</h3>
+        <ul>
+            <li><a href="https://youtu.be/GmG4X9PGOXs">Jon Lajoie - Everyday Normal Guy 2</a> (10/10 - relatable)</li>
+            <li><a href="https://youtu.be/9bZkp7q19f0">PSY - Gangnam Style</a> (10/10 - ayyy sexy lady)</li>
+            <li><a href="https://youtu.be/qQzdAsjWGPg">Frank sinatra - My Way</a> (9.9/10 - The blue-eyed man is at it again)</li>
+            <li><a href="https://youtu.be/gkb7ZlLRfog">Injury Reserve - Three Man Weave</a> (9.8/10 - masterpiece)</li>
+            <li><a href="https://youtu.be/3YxaaGgTQYM">Evanescence - Bring Me To Life</a> (9.8/10 - I LOVE IT WHEN THE BEAT DROPS)</li>
+            <li><a href="https://youtu.be/7AjHIIjrC8E">Nujabes - F.I.L.O</a> (9.7/10 - holy shit)</li>
+            <li><a href="https://youtu.be/hrFdHVqgjYQ">Labi Siffre - My Song</a> (9.6/10 - makes me cry on occasions)</li>
+            <li><a href="https://youtu.be/pQsF3pzOc54">Mac DeMarco - Chamber of Reflection</a> (9.5/10 - if a dizzy dream was a song)</li>
+            <li><a href="https://youtu.be/ryDOy3AosBw">Skee-lo - I Wish</a> (9.4/10 - don't we all)</li>
+            <li><a href="https://youtu.be/jrL_LzX5wv4">House of Pain - Jump Around</a> (9.4/10 - it reminds me of MODNATION RACERS for some reason)</li>
+            <li><a href="https://youtu.be/2Jr79SvSLJI">very cool tutorials - Trap Royalty</a> (9.3/10 - This is how signing the delivery man's form with a crayon feels)</li>
+            <li><a href="https://youtu.be/ZAz3rnLGthg">Kanye West (not ye) - Flashing Lights</a> (9.1/10 - <em>No comment</em>)</li>
+            <li><a href="https://youtu.be/3JcmQONgXJM">Will Smith - Gettin' Jiggy Wit It</a> (8.8/10 - damn, he got the rhymes)</li>
+            <li><a href="https://youtu.be/vk6014HuxcE">JAY-Z - Empire State of Mind</a> (8.7/10 - "in neew yooowk")</li>
+            <li><a href="https://youtu.be/HuJOVEaOrmw">Hotel Ugly - Shut Up My Mom's Calling</a> (8.6/10 - ring ring)</li>
+            <li><a href="https://youtu.be/Ic5vxw3eijY">Estelle + Kanye - American Boy</a> (8.6/10)</li>
+            <li><a href="https://youtu.be/Hre1L9hFDvg">Khantrast - Landed in Brooklyn</a> (8.5/10 - this guy's funny.)</li>
+            <li><a href="https://youtu.be/PWgvGjAhvIw?t=55">Outkast - Hey Ya!</a> (8.3/10 - hey)</li>
+            <li><a href="https://youtu.be/FGxZnmwNJzE">Sailorr - am i supposed to feel this?</a> (8.2/10 - such a nice random find)</li>
+            <li><a href="https://youtu.be/h4UqMyldS7Q">Ice Cube - It Was a Good Day</a> (8.1/10 - it truly was a good day)
+            </li>
+        </ul>
+    </section>
 
-    <h3>Poyo's curated "certified bangers" playlist</h3>
-    <ul>
-        <li><a href="https://youtu.be/GmG4X9PGOXs">Jon Lajoie - Everyday Normal Guy 2</a> (10/10 - relatable)</li>
-        <li><a href="https://youtu.be/9bZkp7q19f0">PSY - Gangnam Style</a> (10/10 - ayyy sexy lady)</li>
-        <li><a href="https://youtu.be/qQzdAsjWGPg">Frank sinatra - My Way</a> (9.9/10 - The blue-eyed man is at it again)</li>
-        <li><a href="https://youtu.be/gkb7ZlLRfog">Injury Reserve - Three Man Weave</a> (9.8/10 - masterpiece)</li>
-        <li><a href="https://youtu.be/3YxaaGgTQYM">Evanescence - Bring Me To Life</a> (9.8/10 - I LOVE IT WHEN THE BEAT DROPS)</li>
-        <li><a href="https://youtu.be/7AjHIIjrC8E">Nujabes - F.I.L.O</a> (9.7/10 - holy shit)</li>
-        <li><a href="https://youtu.be/hrFdHVqgjYQ">Labi Siffre - My Song</a> (9.6/10 - makes me cry on occasions)</li>
-        <li><a href="https://youtu.be/pQsF3pzOc54">Mac DeMarco - Chamber of Reflection</a> (9.5/10 - if a dizzy dream was a song)</li>
-        <li><a href="https://youtu.be/ryDOy3AosBw">Skee-lo - I Wish</a> (9.4/10 - don't we all)</li>
-        <li><a href="https://youtu.be/jrL_LzX5wv4">House of Pain - Jump Around</a> (9.4/10 - it reminds me of MODNATION RACERS for some reason)</li>
-        <li><a href="https://youtu.be/2Jr79SvSLJI">very cool tutorials - Trap Royalty</a> (9.3/10 - This is how signing the delivery man's form with a crayon feels)</li>
-        <li><a href="https://youtu.be/ZAz3rnLGthg">Kanye West (not ye) - Flashing Lights</a> (9.1/10 - <em>No comment</em>)</li>
-        <li><a href="https://youtu.be/3JcmQONgXJM">Will Smith - Gettin' Jiggy Wit It</a> (8.8/10 - damn, he got the rhymes)</li>
-        <li><a href="https://youtu.be/vk6014HuxcE">JAY-Z - Empire State of Mind</a> (8.7/10 - "in neew yooowk")</li>
-        <li><a href="https://youtu.be/HuJOVEaOrmw">Hotel Ugly - Shut Up My Mom's Calling</a> (8.6/10 - ring ring)</li>
-        <li><a href="https://youtu.be/Ic5vxw3eijY">Estelle + Kanye - American Boy</a> (8.6/10)</li>
-        <li><a href="https://youtu.be/Hre1L9hFDvg">Khantrast - Landed in Brooklyn</a> (8.5/10 - this guy's funny.)</li>
-        <li><a href="https://youtu.be/PWgvGjAhvIw?t=55">Outkast - Hey Ya!</a> (8.3/10 - hey)</li>
-        <li><a href="https://youtu.be/FGxZnmwNJzE">Sailorr - am i supposed to feel this?</a> (8.2/10 - such a nice random find)</li>
-        <li><a href="https://youtu.be/h4UqMyldS7Q">Ice Cube - It Was a Good Day</a> (8.1/10 - it truly was a good day)
-        </li>
-    </ul>
-
-    <h3>My inevitable Wikipedia quotes section.</h3>
-    <div class="quotes">
+    <section class="quotes">
+        <h3>My inevitable Wikipedia quotes section.</h3>
         <blockquote>
             <p>
                 That makes no sense but eh, nobody could understand Oppenheimer either, so I respect it.
@@ -137,13 +184,16 @@
             <pre><code>console.log("I hate javascript")</code></pre>
         </blockquote>
         <cite>- Poyo is a programmer.</cite>
-    </div>
+    </section>
 
-    <h3>"I want to talk to your manager."</h3>
-    <p>Shoot me an email at <code>aifqewxiv@tsc.sss</code>. I love talking to people! (tip: the email is <a href="https://en.wikipedia.org/wiki/Caesar_cipher">caesar ciphered</a>)</p>
 
-    <h3>Link back to me</h3>
-    <div class="buttons">
+    <section class="karen">
+        <h3>"I want to talk to your manager."</h3>
+        <p>Shoot me an email at <code>aifqewxiv@tsc.sss</code>. I love talking to people! (tip: the email is <a href="https://en.wikipedia.org/wiki/Caesar_cipher">caesar ciphered</a>)</p>
+    </section>
+
+    <section class="buttons">
+        <h3>Link back to me.</h3>
         <p>Hotlinking is okay, even though I'd rather you didn't.</p>
         <a href="https://poy.ooo/" target="_blank"><img src="assets/images/buttons/button.png" alt="Poyo's button. Try to decipher it!" /></a>
         <small>I hid a message in this button but I forgot what it was.</small>
@@ -152,11 +202,12 @@
         <a href="https://poy.ooo/" target="_blank"><img src="assets/images/buttons/carl-is-a-cunt.png" alt="RIP Poyoweb"></a>
         <p>Friends and cool people.</p>
         <a href="https://thesomething.uk/" target="_blank"><img src="https://thesomething.uk/button.php" alt="thesomething.uk - very british"></a>
-        <a href="https://raccoonbutt.com/" target="_blank"><img src="assets/images/buttons/raccoonbutt.gif" alt="raccoonbutt.com"></a>
-        <a href="https://metakabe.nekoweb.org/" target="_blank"><img src="https://metakabe.nekoweb.org/Buttons/kabebutton.gif" alt="Kabe!! :D" onerror="this.onerror=null; this.src='assets/images/buttons/kabebutton.gif'"></a>
+        <a href="https://raccoonbutt.com/" target="_blank"><img src="/assets/images/buttons/raccoonbutt.gif" alt="raccoonbutt.com"></a>
+        <a href="https://metakabe.nekoweb.org/" target="_blank"><img src="/https://metakabe.nekoweb.org/Buttons/kabebutton.gif" alt="Kabe!! :D" onerror="this.onerror=null; this.src='assets/images/buttons/kabebutton.gif'"></a>
         <a href="https://chxshire22.com/" target="_blank"><img src="https://chxshire22.com/_assets/images/buttons/chxshirebutton.gif" alt="chxshire22 wsg" loading="lazy" onerror="this.onerror=null; this.src='assets/images/buttons/chxshirebutton.gif'" /></a>
-        <a href="https://nobo.bearblog.dev/" target="_blank"><img loading="lazy" src="assets/images/buttons/nobo-button.png"></a>
-    </div>
+        <a href="https://nobo.bearblog.dev/" target="_blank"><img loading="lazy" src="/assets/images/buttons/nobo-button.png"></a>
+        <a href="https://jleuthardt.com" target="_blank"><img src="assets/images/buttons/jace.png" alt="jleuthardt.com" width="88" height="31" /></a>
+    </section>
 </body>
 
 </html>
