@@ -17,6 +17,7 @@ body {
     background-color: var(--pal1);
     height: 100dvh;
     width: 100dvw;
+    overflow: hidden;
 
     color: var(--pal4);
 
@@ -37,6 +38,15 @@ body {
                 var(--pal4) 95%,
                 transparent 100%);
         /* fade the right border */
+    }
+
+    .video {
+        top: 40%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        aspect-ratio: 1 / 1;
+        height: 100%;
     }
 
     .person {
