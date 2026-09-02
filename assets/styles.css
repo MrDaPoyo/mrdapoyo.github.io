@@ -1,0 +1,74 @@
+:root {
+    --pal1: #002b59;
+    --pal2: #005f8c;
+    --pal3: #00b9be;
+    --pal4: #9ff4e5;
+    --gap: 5px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--pal1);
+    height: 100dvh;
+    width: 100dvw;
+
+    color: var(--pal4);
+
+    display: flex;
+    gap: var(--gap);
+}
+
+.window {
+    display: flex;
+    position: relative;
+    justify-content: start;
+    height: 100%;
+
+    .background {
+        display: block;
+        height: 100%;
+        mask-image: linear-gradient(to right,
+                var(--pal4) 95%,
+                transparent 100%);
+        /* fade the right border */
+    }
+
+    .person {
+        transition: 0.3s;
+
+        &:hover {
+            scale: 1.05;
+        }
+    }
+
+
+
+    .legs-crossed {
+        position: absolute;
+        width: 50%;
+        left: -5%;
+        bottom: -20%;
+        z-index: 3;
+    }
+
+    .couple-chatting {
+        position: absolute;
+        height: 70%;
+        right: -10%;
+        bottom: -20%;
+    }
+}
+
+.page {
+    padding: var(--gap);
+
+    &>:first-child {
+        margin-top: var(--gap);
+    }
+}
