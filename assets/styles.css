@@ -41,6 +41,7 @@ body {
     }
 
     .video {
+        filter: saturate(0.8) hue-rotate(100deg);
         top: 40%;
         left: 20%;
         transform: translate(-50%, -50%);
