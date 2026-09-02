@@ -52,13 +52,12 @@ body {
 
     .person {
         transition: 0.3s;
+        animation: ease-in-out 5s floating infinite;
 
         &:hover {
             scale: 1.05;
         }
     }
-
-
 
     .legs-crossed {
         position: absolute;
@@ -69,6 +68,7 @@ body {
     }
 
     .couple-chatting {
+        animation-delay: 0.6s;
         position: absolute;
         height: 70%;
         right: -10%;
@@ -81,5 +81,19 @@ body {
 
     &>:first-child {
         margin-top: var(--gap);
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }
