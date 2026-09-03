@@ -40,16 +40,6 @@ body {
         /* fade the right border */
     }
 
-    .video {
-        filter: saturate(0.8) hue-rotate(100deg);
-        top: 40%;
-        left: 20%;
-        transform: translate(-50%, -50%);
-        position: absolute;
-        aspect-ratio: 1 / 1;
-        height: 100%;
-    }
-
     .person {
         transition: 0.3s;
         animation: ease-in-out 5s floating infinite;
