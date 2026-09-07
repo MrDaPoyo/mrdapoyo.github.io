@@ -6,6 +6,11 @@
     --gap: 5px;
 }
 
+@font-face {
+    font-family: "Dot Matrix";
+    src: url("/assets/fonts/dot_matrix.ttf");
+}
+
 * {
     box-sizing: border-box;
 }
@@ -72,6 +77,16 @@ body {
     &>:first-child {
         margin-top: var(--gap);
     }
+}
+
+.next-stop {
+    font-family: "Dot Matrix";
+    font-size: 3rem;
+    padding: 7px;
+    background-color: var(--pal2);
+    border: outset var(--pal3) 4px;
+    color: var(--pal4);
+    margin-bottom: var(--gap);
 }
 
 @keyframes floating {
