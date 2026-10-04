@@ -89,6 +89,12 @@ body {
     margin-bottom: var(--gap);
 }
 
+[data-tooltip]:after:hover {
+    content: attr(data-tooltip);
+    color: black;
+    z-index: 100;
+}
+
 @keyframes floating {
     0% {
         transform: translateY(0);

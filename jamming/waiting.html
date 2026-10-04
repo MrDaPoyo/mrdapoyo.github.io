@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Jamming so hard rn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Poyo">
+    <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+
+<body>
+    <main class="container">
+        <div class="player">
+            <div id="audio-player" style="width:0;height:0;overflow:hidden"></div>
+            <button id="play">Get jamming!</button>
+            <button id="pause">Party pooper</button>
+            <input id="vol" type="range" min="0" max="100" value="80">
+        </div>
+        <div class="playlist">
+            <h3>Poyo's curated <em>Certified Bangers</em>™ playlist</h3>
+            <ul>
+                <li><a target="_blank" href="https://youtu.be/GmG4X9PGOXs" id="GmG4X9PGOXs">Jon Lajoie - Everyday Normal Guy 2</a> (10/10)</li>
+                <li><a target="_blank" href="https://youtu.be/qQzdAsjWGPg" id="qQzdAsjWGPg">Frank sinatra - My Way</a> (9.9/10)</li>
+                <li><a target="_blank" href="https://youtu.be/gkb7ZlLRfog" id="gkb7ZlLRfog">Injury Reserve - Three Man Weave</a> (9.8/10)</li>
+                <li><a target="_blank" href="https://youtu.be/jrL_LzX5wv4" id="jrL_LzX5wv4">House of Pain - Jump Around</a> (9.8/10)</li>
+                <li><a target="_blank" href="https://youtu.be/3YxaaGgTQYM" id="3YxaaGgTQYM">Evanescence - Bring Me To Life</a> (9.8/10)</li>
+                <li><a target="_blank" href="https://youtu.be/7AjHIIjrC8E" id="7AjHIIjrC8E">Nujabes - F.I.L.O</a> (9.7/10)</li>
+                <li><a target="_blank" href="https://youtu.be/xwtdhWltSIg" id="xwtdhWltSIg">R.E.M - Losing My Religion</a> (9.7/10)</li>
+                <li><a target="_blank" href="https://youtu.be/HR4HTtnKhjY" id="HR4HTtnKhjY">Mountain Brothers - Paperchase</a> (9.7/10)</li>
+                <li><a target="_blank" href="https://youtu.be/TXYMMsoTMLQ" id="TXYMMsoTMLQ">Willie Colón - ¿Oh que será?</a> (9.6/10)</li>
+                <li><a target="_blank" href="https://youtu.be/hrFdHVqgjYQ" id="hrFdHVqgjYQ">Labi Siffre - My Song</a> (9.6/10)</li>
+                <li><a target="_blank" href="https://youtu.be/r8OipmKFDeM" id="r8OipmKFDeM">Oasis - Don't Look Back In Anger.</a> (9.6/10)</li>
+                <li><a target="_blank" href="https://youtu.be/B95OUKk7alM" id="B95OUKk7alM">Kanye West - Touch The Sky</a> (9.5/10)</li>
+                <li><a target="_blank" href="https://youtu.be/FHItMKMGAjE" id="FHItMKMGAjE">QoQinox - Homecoming but the beat is Chicago</a> (9.2/10)</li>
+                <li><a target="_blank" href="https://youtu.be/NtBOTCiXkoQ" id="NtBOTCiXkoQ">LG Lotus - Turn Me On (LOOPED)</a> (9.3/10)</li>
+                <li><a target="_blank" href="https://youtu.be/ZAz3rnLGthg" id="ZAz3rnLGthg">Kanye West (not ye) - Flashing Lights</a> (9.1/10)</li>
+                <li><a target="_blank" href="https://youtu.be/2Jr79SvSLJI" id="2Jr79SvSLJI">very cool tutorials - Trap Royalty</a> (9/10)</li>
+                <li><a target="_blank" href="https://youtu.be/3JcmQONgXJM" id="3JcmQONgXJM">Will Smith - Gettin' Jiggy Wit It</a> (8.8/10)</li>
+                <li><a target="_blank" href="https://youtu.be/vk6014HuxcE" id="vk6014HuxcE">JAY-Z - Empire State of Mind</a> (8.7/10)</li>
+                <li><a target="_blank" href="https://youtu.be/HuJOVEaOrmw" id="HuJOVEaOrmw">Hotel Ugly - Shut Up My Mom's Calling</a> (8.6/10)</li>
+            </ul>
+            <h4>Honorary mentions</h4>
+            <ul>
+                <li><a target="_blank" href="https://youtu.be/h4UqMyldS7Q">Ice Cube - It Was a Good Day</a> (8.1/10)</li>
+                <li><a target="_blank" href="https://youtu.be/Ic5vxw3eijY">Estelle + Kanye West - American Boy</a>(8/10)</li>
+                <li><a target="_blank" href="https://youtu.be/9bZkp7q19f0">PSY - Gangnam Style</a> (8/10)</li>
+                <li><a href="https://youtu.be/k0ynTKJZirg">Masayoshi Takanaka - Brasilian Skies</a></li>
+            </ul>
+        </div>
+    </main>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            background-color: #093d59;
+            color: #add8e6;
+            margin: auto;
+        }
+
+        body {
+            padding: 5px;
+        }
+
+        a {
+            color: #7cd8f7;
+        }
+
+        button {
+            color: #add8e6;
+            border-radius: 0;
+            border: 2px solid #add8e6;
+            background-color: #093d59;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .now-playing a {
+            color: red;
+        }
+
+        .now-playing {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        const tracks = [...document.querySelectorAll('.playlist a')]
+            .map(a => {
+                const m = a.href.match(/(?:youtu\.be\/|v=)([\w-]{11})/);
+                return m && { id: m[1], li: a.closest('li') };
+            })
+            .filter(Boolean);
+    </script>
+</body>
+
+</html>
+
+<!-- idea: a record player -->
+<!-- size: 800 width 600 height -->
+<!-- istg it's me writing these comments trust me bro -->
